@@ -1,0 +1,274 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 262 83% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 262 83% 20%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 262 83% 20%;
+  --primary: 262 83% 20%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 262 20% 95%;
+  --secondary-foreground: 262 83% 20%;
+  --muted: 262 20% 95%;
+  --muted-foreground: 262 20% 45%;
+  --accent: 262 20% 90%;
+  --accent-foreground: 262 83% 20%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 262 20% 90%;
+  --input: 262 20% 90%;
+  --ring: 262 83% 20%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 5%;
+  --foreground: 25 95% 53%;
+  --card: 0 0% 8%;
+  --card-foreground: 25 95% 53%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 25 95% 53%;
+  --primary: 25 95% 53%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 25 95% 53%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 25 20% 65%;
+  --accent: 0 0% 20%;
+  --accent-foreground: 25 95% 53%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 25 95% 53%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.gradientas {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+}
+
+.dark .gradientas {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+}
+
+.stiklas {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .stiklas {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.seselis {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .seselis {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.hoverEfektas {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hoverEfektas:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.animacijaFade {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animacijaSlide {
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reitingasZvaigzde {
+  color: #fbbf24;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.knyguKortele {
+  background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+  border: 1px solid hsl(var(--border));
+  transition: all 0.3s ease;
+}
+
+.knyguKortele:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .knyguKortele:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+.filtruSekcija {
+  background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--accent)) 100%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.heroSekcija {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSekcija::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  opacity: 0.3;
+}
+
+.dark .heroSekcija::before {
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff7f00' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+
+.navigacijosNuoroda {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navigacijosNuoroda::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: hsl(var(--primary));
+  transition: width 0.3s ease;
+}
+
+.navigacijosNuoroda:hover::after,
+.navigacijosNuoroda.active::after {
+  width: 100%;
+}
+
+.dark .navigacijosNuoroda::after {
+  background: hsl(var(--primary));
+}
+
+.mygtukoEfektas {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mygtukoEfektas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.mygtukoEfektas:hover::before {
+  left: 100%;
+}
+
+.ivestiesLaukas {
+  background: hsl(var(--background));
+  border: 2px solid hsl(var(--border));
+  transition: all 0.3s ease;
+}
+
+.ivestiesLaukas:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsla(var(--primary), 0.1);
+}
+
+.checkboxStilius {
+  accent-color: hsl(var(--primary));
+}
+
+.reitingasFiltras {
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  color: hsl(var(--primary-foreground));
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reitingasFiltras:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px hsla(var(--primary), 0.3);
+}
+
+.loadingSpinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tekstasGradientas {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .tekstasGradientas {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
